@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">MyDatabaseExample</string>
+    <string name="app_name">Books</string>
+    <string name="title_activity_main">Bookds</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="addTitle">Title</string>
+    <string name="addAuthor">Author</string>
+    <string name="addYear">Year</string>
+    <string name="addCategory">Category</string>
+    <string name="addPersonalOp">Personal evaluation</string>
+    <string name="addPublisher">Publisher</string>
+
 </resources>

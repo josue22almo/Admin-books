@@ -3,7 +3,6 @@ package com.example.pr_idi.mydatabaseexample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,20 +48,21 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent book){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
         switch (requestCode){
             case request_Code:
                 switch (resultCode){
                     case RESULT_OK:
-                       /* String author = book.getAuthor();
-                        String title = book.getTitle();
-                        int year = book.getYear();
-                        String publisher = book.getPublisher();
-                        String category = book.getCategory();
-                        String personal_evaluation = book.getPersonal_evaluation();
-                        bookData.createBook(title,author,year,publisher,category,personal_evaluation);*/
-                        //book.g
+                        String ti = data.getStringExtra("title");
+                        String at = data.getStringExtra("author");
+                        int yr = data.getIntExtra("year",-1);
+                        String publi = data.getStringExtra("publisher");
+                        String cat = data.getStringExtra("category");
+                        String eval = data.getStringExtra("evaluation");
+                        bookData.createBook(ti,at,yr,publi,cat,eval);
                         break;
+                    case RESULT_CANCELED:
+                        Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();
                 }
 
         }

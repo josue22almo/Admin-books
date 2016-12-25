@@ -2,8 +2,6 @@ package com.example.pr_idi.mydatabaseexample;
 
 
 import java.util.List;
-import java.util.Random;
-
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;

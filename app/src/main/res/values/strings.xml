@@ -10,5 +10,5 @@
     <string name="addCategory">Category</string>
     <string name="addPersonalOp">Personal evaluation</string>
     <string name="addPublisher">Publisher</string>
-
+    <string name="noContinue">Title or author is empty. Maybe both.</string>
 </resources>

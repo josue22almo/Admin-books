@@ -36,7 +36,7 @@ public class AddActivity extends AppCompatActivity {
                     String publi = publisher.getText().toString();
                     String cat = category.getSelectedItem().toString();
                     String eval = evaluation.getText().toString();
-                    if(ti.length() == 0 || at.length() == 0)
+                    if(ti.length() == 0 || at.length() == 0 || yr == -1 || publi.length() == 0)
                         Snackbar.make(v, R.string.noContinue, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     else{

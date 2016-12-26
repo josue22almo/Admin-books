@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     private BookData bookData;
     private final int request_Code = 1;
     List<Book> books;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,12 @@ public class MainActivity extends AppCompatActivity
         //Action for add a Book
         addBook();
         initializeNavigationView();
+        initializeRecycleView();
 
+    }
+
+    private void initializeRecycleView() {
+        //books = bookData.getAllBooks();
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycle);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -42,67 +48,7 @@ public class MainActivity extends AppCompatActivity
         rv.setAdapter(adapter);
     }
 
-    private void initializeActionBar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-    }
-
-    private void initializeData(){
-        bookData = new BookData(this);
-        books = new ArrayList<>();
-       /* books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));
-        books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));
-        books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));*/
-    }
-
-    private void addBook(){
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(new Intent("android.intent.action.addActivity"),request_Code);
-            }
-        });
-    }
-
-    private void initializeNavigationView(){
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        switch (requestCode){
-            case request_Code:
-                switch (resultCode){
-                    case RESULT_OK:
-                        String ti = data.getStringExtra("title");
-                        String at = data.getStringExtra("author");
-                        int yr = data.getIntExtra("year",-1);
-                        String publi = data.getStringExtra("publisher");
-                        String cat = data.getStringExtra("category");
-                        String eval = data.getStringExtra("evaluation");
-                        bookData.createBook(ti,at,yr,publi,cat,eval);
-                        break;
-                    case RESULT_CANCELED:
-                        Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();
-                }
-
-        }
-    }
-
+    // Life cycle methods. Check whether it is necessary to reimplement them
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -158,5 +104,83 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        bookData.open();
+        initializeNavigationView();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        bookData.close();
+        super.onPause();
+    }
+
+    private void initializeActionBar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    private void initializeData(){
+        bookData = new BookData(this);
+       // bookData.open();
+        //books = new ArrayList<>();
+        books = bookData.getAllBooks();
+       /* books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));
+        books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));
+        books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));*/
+    }
+
+    private void addBook(){
+        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent("android.intent.action.addActivity"),request_Code);
+            }
+        });
+    }
+
+    private void initializeNavigationView(){
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        switch (requestCode){
+            case request_Code:
+                switch (resultCode){
+                    case RESULT_OK:
+                        String ti = data.getStringExtra("title");
+                        String at = data.getStringExtra("author");
+                        int yr = data.getIntExtra("year",-1);
+                        String publi = data.getStringExtra("publisher");
+                        String cat = data.getStringExtra("category");
+                        String eval = data.getStringExtra("evaluation");
+                        Book newB = bookData.createBook(ti,at,yr,publi,cat,eval);
+                        books.add(newB);
+                        break;
+                    case RESULT_CANCELED:
+                        Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();
+                }
+
+        }
     }
 }

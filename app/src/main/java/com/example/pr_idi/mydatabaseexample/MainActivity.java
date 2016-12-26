@@ -3,6 +3,8 @@ package com.example.pr_idi.mydatabaseexample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,40 +16,73 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private BookData bookData;
     private final int request_Code = 1;
+    List<Book> books;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeActionBar();
+        initializeData();
+        //Action for add a Book
+        addBook();
+        initializeNavigationView();
+
+        RecyclerView rv = (RecyclerView)findViewById(R.id.recycle);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        RVAdapter adapter = new RVAdapter(books);
+        rv.setAdapter(adapter);
+    }
+
+    private void initializeActionBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        bookData = new BookData(this);
-        //Action for add a Book
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                startActivityForResult(new Intent("android.intent.action.addActivity"),request_Code);
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+    }
 
+    private void initializeData(){
+        bookData = new BookData(this);
+        books = new ArrayList<>();
+       /* books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));
+        books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));
+        books.add (new Book("El rey leon","Josue"));
+        books.add (new Book("El rey soy yo","Jota"));
+        books.add (new Book("Yo y tu","Pedro"));
+        books.add (new Book("Fernando la bara","Manuel"));*/
+    }
+
+    private void addBook(){
+        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent("android.intent.action.addActivity"),request_Code);
+            }
+        });
+    }
+
+    private void initializeNavigationView(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
-
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         switch (requestCode){
             case request_Code:

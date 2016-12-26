@@ -17,6 +17,11 @@ public class Book {
     private String category;
     private String personal_evaluation;
 
+    public Book(String title, String author) {
+        this.author = author;
+        this.title = title;
+    }
+
     public long getId() {
         return id;
     }

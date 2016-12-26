@@ -33,4 +33,17 @@
         <item>Autobiographies</item>
         <item>Fantasy</item>
     </string-array>
+
+    <integer-array name="cercles">
+        <item>@drawable/cercleblue</item>
+        <item>@drawable/cercledarkblue</item>
+        <item>@drawable/cercledarkgreen</item>
+        <item>@drawable/cercleorange</item>
+        <item>@drawable/cercledarkpurple</item>
+        <item>@drawable/cercledarkred</item>
+        <item>@drawable/cerclegreen</item>
+        <item>@drawable/cercleorange</item>
+        <item>@drawable/cerclepurple</item>
+        <item>@drawable/cerclered</item>
+    </integer-array>
 </resources>

@@ -10,74 +10,29 @@
     tools:context=".AddActivity"
     android:transitionGroup="true">
 
+    <!--TITLE-->
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textCapSentences|textAutoCorrect"
         android:ems="10"
         android:id="@+id/titleText"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:singleLine="true"
-        android:hint="@string/addTitle" />
+        android:hint="@string/addTitle"
+        android:textSize="@dimen/textSize"/>
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/authorText"
-        android:layout_below="@+id/titleText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp"
-        android:singleLine="true"
-        android:hint="@string/addAuthor" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/yearText"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/authorText"
-        android:layout_alignParentStart="true"
-        android:maxLength="4"
-        android:textIsSelectable="true"
-        android:hint="@string/addYear" />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/publisherText"
-        android:layout_below="@+id/yearText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:hint="@string/addPublisher"
-        android:singleLine="true"/>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_below="@+id/publisherText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:hint="@string/addCategory"
-        android:entries="@array/categories"
-        android:drawSelectorOnTop="true"
-        android:prompt="@string/addCategory"
-        android:spinnerMode="dialog"/>
-
+    <!--FLOATING BUTTONS-->
     <LinearLayout
         android:layout_width="180dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
-        android:layout_below="@+id/evalText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp">
+        android:layout_alignBottom="@+id/evalText"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/margin_textView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/accept_button"
@@ -99,14 +54,73 @@
 
     </LinearLayout>
 
+    <!--AUTHOR-->
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords|textAutoCorrect"
+        android:ems="10"
+        android:id="@+id/authorText"
+        android:singleLine="true"
+        android:hint="@string/addAuthor"
+        android:layout_below="@+id/titleText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/margin_textView"
+        android:textSize="@dimen/textSize"/>
+
+    <!--YEAR-->
+    <EditText
+        android:hint="@string/addYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearText"
+        android:ems="10"
+        android:inputType="date"
+        android:maxLength="4"
+        android:layout_below="@+id/authorText"
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textSize"
+        android:layout_marginTop="@dimen/margin_textView"/>
+
+    <!--PUBLISHER-->
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences"
+        android:ems="10"
+        android:id="@+id/publisherText"
+        android:hint="@string/addPublisher"
+        android:singleLine="true"
+        android:layout_below="@+id/yearText"
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textSize"
+        android:layout_marginTop="@dimen/margin_textView"/>
+
+    <!--SPINNER-->
+    <Spinner
+        android:layout_width="wrap_content"
+        android:id="@+id/spinner"
+        android:hint="@string/addCategory"
+        android:entries="@array/categories"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/addCategory"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/publisherText"
+        android:layout_alignParentStart="true"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/margin_textView"/>
+
+    <!--PERSONAL EVALUATION-->
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/evalText"
         android:maxLines="3"
         android:hint="@string/addPersonalOp"
+        android:textSize="@dimen/textSize"
+        android:layout_marginTop="19dp"
+        android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
         android:layout_below="@+id/spinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

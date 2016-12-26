@@ -1,44 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="@dimen/card_size"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     >
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        >
+        android:id="@+id/cv">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            >
+            android:padding="@dimen/padding_card">
 
-            <!--TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/book_photo"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/cercle"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                android:text="J"
-                android:textColor="@color/white"/-->
             <ImageView
                 android:id="@+id/book_photo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/cercle"
                 android:tag="@+id/viewTag"/>
-
+            <!--Letter inside-->
             <TextView
                 android:id="@+id/book_photoText"
                 android:layout_width="wrap_content"
@@ -49,29 +33,27 @@
                 android:layout_alignBottom="@+id/book_photo"
                 android:layout_margin="1dp"
                 android:gravity="center"
-                android:text="J"
                 android:textSize="30dp"
                 android:textColor="@color/white" />
-
+            <!--TITLE-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/book_name"
-                android:textSize="30sp"
-                android:text="Jeraldo"
+                android:id="@+id/book_title"
+                android:textSize="@dimen/title_text_size"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/book_photo"
-                android:layout_marginStart="14dp" />
-
+                android:layout_marginStart="14dp"
+                android:color="@android:color/black"/>
+            <!--BOOK-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/book_age"
-                android:text="Jeraldo"
-                android:layout_below="@+id/book_name"
-                android:layout_alignStart="@+id/book_name" />
-
-
+                android:id="@+id/book_author"
+                android:layout_below="@+id/book_title"
+                android:layout_alignStart="@+id/book_title"
+                android:textSize="@dimen/book_text_size"
+                android:color="@android:color/black"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

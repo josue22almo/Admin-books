@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".MainActivity2" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -23,6 +23,16 @@
             android:label="AddActivity">
             <intent-filter>
                 <action android:name="android.intent.action.addActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BookActivity"
+            android:label="@string/title_activity_book_activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.bookActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

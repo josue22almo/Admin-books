@@ -1,5 +1,8 @@
 package com.example.pr_idi.mydatabaseexample;
 
+import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Random;
@@ -18,27 +22,28 @@ import java.util.Random;
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     List<Book> books;
-
+    private final int request_Code = 1;
     public RVAdapter(List<Book> books){
         this.books = books;
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
-        TextView bookName;
-        TextView bookAge;
+        //CardView cv;
+        TextView bookTitle;
+        TextView bookAuthor;
         ImageView bookPhoto;
         TextView letter;
         TypedArray cercles;
+        View view;
 
         BookViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cv);
-            bookName = (TextView)itemView.findViewById(R.id.book_name);
-            bookAge = (TextView)itemView.findViewById(R.id.book_age);
+            view = itemView;
+           // cv = (CardView)itemView.findViewById(R.id.cv);
+            bookTitle = (TextView)itemView.findViewById(R.id.book_title);
+            bookAuthor = (TextView)itemView.findViewById(R.id.book_author);
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
-            //cercles = itemView.getResources().getIntArray(R.array.circles);
             cercles = itemView.getResources().obtainTypedArray(R.array.cercles);
         }
     }
@@ -52,14 +57,28 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     @Override
     public void onBindViewHolder(BookViewHolder bookViewHolder, int i) {
-        bookViewHolder.bookName.setText(books.get(i).getTitle());
-        bookViewHolder.bookAge.setText(books.get(i).getAuthor());
+        bookViewHolder.bookTitle.setText(books.get(i).getTitle());
+        bookViewHolder.bookAuthor.setText(books.get(i).getAuthor());
         bookViewHolder.letter.setText("" + books.get(i).getTitle().charAt(0));
-
         int randCercle = bookViewHolder.cercles.getResourceId(new Random().nextInt(10),-1);
-        //Drawable draw = itemView.getResources().getDrawable(randCercle);
-        //GradientDrawable bgShape = (GradientDrawable)bookPhoto.getBackground();
         bookViewHolder.bookPhoto.setImageResource(randCercle);
+        final Context context = bookViewHolder.view.getContext();
+        bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"Clicked",Toast.LENGTH_LONG).show();
+                context.startActivity(new Intent("android.intent.action.bookActivity"));
+            }
+        });
+        bookViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(v.getContext(),"Long clicked",Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
+
+
     }
 
 

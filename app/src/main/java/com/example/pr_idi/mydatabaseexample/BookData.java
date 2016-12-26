@@ -52,15 +52,12 @@ public class BookData {
         values.put(MySQLiteHelper.COLUMN_AUTHOR, author);
 
         // Invented data
-        /*values.put(MySQLiteHelper.COLUMN_PUBLISHER, publisher);
+        values.put(MySQLiteHelper.COLUMN_PUBLISHER, publisher);
         values.put(MySQLiteHelper.COLUMN_YEAR, year);
         values.put(MySQLiteHelper.COLUMN_CATEGORY, category);
-        values.put(MySQLiteHelper.COLUMN_PERSONAL_EVALUATION, personal_evaluation);*/
+        values.put(MySQLiteHelper.COLUMN_PERSONAL_EVALUATION, personal_evaluation);
 
-        values.put(MySQLiteHelper.COLUMN_PUBLISHER, "perdo");
-        values.put(MySQLiteHelper.COLUMN_YEAR, 1962);
-        values.put(MySQLiteHelper.COLUMN_CATEGORY, "fernando");
-        values.put(MySQLiteHelper.COLUMN_PERSONAL_EVALUATION, "personal_evaluation");
+
         // Actual insertion of the data using the values variable
         long insertId = database.insert(MySQLiteHelper.TABLE_BOOKS, null,
                 values);

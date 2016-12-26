@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initializeRecycleView() {
-        //books = bookData.getAllBooks();
+        books = bookData.getAllBooks();
         RecyclerView rv = (RecyclerView)findViewById(R.id.recycle);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -134,18 +134,6 @@ public class MainActivity extends AppCompatActivity
        // bookData.open();
         //books = new ArrayList<>();
         books = bookData.getAllBooks();
-       /* books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));
-        books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));
-        books.add (new Book("El rey leon","Josue"));
-        books.add (new Book("El rey soy yo","Jota"));
-        books.add (new Book("Yo y tu","Pedro"));
-        books.add (new Book("Fernando la bara","Manuel"));*/
     }
 
     private void addBook(){
@@ -175,7 +163,7 @@ public class MainActivity extends AppCompatActivity
                         String cat = data.getStringExtra("category");
                         String eval = data.getStringExtra("evaluation");
                         Book newB = bookData.createBook(ti,at,yr,publi,cat,eval);
-                        books.add(newB);
+                        initializeRecycleView();
                         break;
                     case RESULT_CANCELED:
                         Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();

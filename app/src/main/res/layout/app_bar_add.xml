@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".AddActivity">
+
+
+    <!--TOOLBAR-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                    android:text="@string/title_activity_add"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--BOOK ITEMS-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_top">
+        <!--TITLE-->
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_above="@+id/nav_view_add"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:ems="10"
+            android:id="@+id/titleText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:singleLine="true"
+            android:hint="@string/addTitle"
+            android:textSize="@dimen/textSize"/>
+
+
+        <!--AUTHOR-->
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:inputType="textCapWords|textAutoCorrect"
+            android:ems="10"
+            android:id="@+id/authorText"
+            android:singleLine="true"
+            android:hint="@string/addAuthor"
+            android:layout_below="@+id/titleText"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/margin_textView"
+            android:textSize="@dimen/textSize"/>
+
+        <!--YEAR-->
+        <EditText
+            android:hint="@string/addYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:id="@+id/yearText"
+            android:ems="10"
+            android:inputType="date"
+            android:maxLength="4"
+            android:layout_below="@+id/authorText"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/textSize"
+            android:layout_marginTop="@dimen/margin_textView"/>
+        <!--PUBLISHER-->
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:ems="10"
+            android:id="@+id/publisherText"
+            android:hint="@string/addPublisher"
+            android:singleLine="true"
+            android:layout_below="@+id/yearText"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/textSize"
+            android:layout_marginTop="@dimen/margin_textView"/>
+
+        <!--SPINNER-->
+        <Spinner
+            android:layout_width="wrap_content"
+            android:id="@+id/spinner"
+            android:hint="@string/addCategory"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:entries="@array/categories"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/addCategory"
+            android:spinnerMode="dialog"
+            android:layout_below="@+id/publisherText"
+            android:layout_alignParentStart="true"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_textView"/>
+
+        <!--PERSONAL EVALUATION-->
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/evalText"
+            android:maxLines="3"
+            android:hint="@string/addPersonalOp"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:textSize="@dimen/textSize"
+            android:layout_marginTop="19dp"
+            android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+            android:layout_below="@+id/spinner"
+            android:layout_alignParentStart="true" />
+
+        <!--FLOATING BUTTONS-->
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_alignBottom="@+id/evalText"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+            <!--ACCEPT BUTTON-->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/accept_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_add"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_alignParentBottom="true" />
+            <!--DENNY BUTTON-->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/deny_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_alignParentBottom="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

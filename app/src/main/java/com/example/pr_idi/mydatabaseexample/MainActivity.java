@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
@@ -32,23 +31,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         initializeActionBar();
         initializeData();
-        //Action for add a Book
         addBook();
         initializeNavigationView();
         initializeRecycleView();
 
+       // getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void initializeRecycleView() {
-        books = bookData.getAllBooks();
-        RecyclerView rv = (RecyclerView)findViewById(R.id.recycle);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-        RVAdapter adapter = new RVAdapter(books);
-        rv.setAdapter(adapter);
-    }
-
-    // Life cycle methods. Check whether it is necessary to reimplement them
+    // Life cycle methods.
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -119,6 +109,7 @@ public class MainActivity extends AppCompatActivity
         super.onPause();
     }
 
+
     private void initializeActionBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -131,8 +122,6 @@ public class MainActivity extends AppCompatActivity
 
     private void initializeData(){
         bookData = new BookData(this);
-       // bookData.open();
-        //books = new ArrayList<>();
         books = bookData.getAllBooks();
     }
 
@@ -149,6 +138,15 @@ public class MainActivity extends AppCompatActivity
     private void initializeNavigationView(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void initializeRecycleView() {
+        books = bookData.getAllBooks();
+        RecyclerView rv = (RecyclerView)findViewById(R.id.recycle);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        RVAdapter adapter = new RVAdapter(books);
+        rv.setAdapter(adapter);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){

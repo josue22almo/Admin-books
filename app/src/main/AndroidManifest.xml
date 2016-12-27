@@ -9,30 +9,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity2" />
+        <!--MAIN ACTIITY-->
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--ADD BOOK ACTIVITY-->
         <activity
             android:name=".AddActivity"
-            android:label="AddActivity">
+            android:label="@string/title_activity_add"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.addActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
+        <!--ACTIVITY FOR CONSULT A BOOK-->
         <activity
             android:name=".BookActivity"
-            android:label="@string/title_activity_book_activity"
+            android:label="@string/title_activity_book"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.bookActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

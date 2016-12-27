@@ -23,6 +23,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     List<Book> books;
     private final int request_Code = 1;
+    TypedArray cercles;
     public RVAdapter(List<Book> books){
         this.books = books;
     }
@@ -33,7 +34,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         TextView bookAuthor;
         ImageView bookPhoto;
         TextView letter;
-        TypedArray cercles;
+        int cercle;
         View view;
 
         BookViewHolder(View itemView) {
@@ -45,6 +46,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
             cercles = itemView.getResources().obtainTypedArray(R.array.cercles);
+            cercle = cercles.getResourceId(new Random().nextInt(10),-1);
+            bookPhoto.setImageResource(cercle);
         }
     }
 
@@ -60,14 +63,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         bookViewHolder.bookTitle.setText(books.get(i).getTitle());
         bookViewHolder.bookAuthor.setText(books.get(i).getAuthor());
         bookViewHolder.letter.setText("" + books.get(i).getTitle().charAt(0));
-        int randCercle = bookViewHolder.cercles.getResourceId(new Random().nextInt(10),-1);
-        bookViewHolder.bookPhoto.setImageResource(randCercle);
+
         final Context context = bookViewHolder.view.getContext();
         bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"Clicked",Toast.LENGTH_LONG).show();
-                context.startActivity(new Intent("android.intent.action.bookActivity"));
+                context.startActivity(new Intent("android.intent.action.addActivity"));
             }
         });
         bookViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {

@@ -10,16 +10,22 @@ public class Book {
     // Contains basic information on the book
 
     private long id;
-    private String author;
     private String title;
+    private String author;
     private int year;
     private String publisher;
     private String category;
     private String personal_evaluation;
 
-    public Book(String title, String author) {
-        this.author = author;
+    public Book(long id, String title, String author, int year,
+                String publisher, String category, String personal_evaluation) {
+        this.id = id;
         this.title = title;
+        this.author = author;
+        this.year = year;
+        this.publisher = publisher;
+        this.category = category;
+        this.personal_evaluation = personal_evaluation;
     }
 
     public long getId() {

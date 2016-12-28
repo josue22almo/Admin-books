@@ -1,5 +1,6 @@
 package com.example.pr_idi.mydatabaseexample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,22 +10,35 @@ import android.view.View;
 
 public class BookActivity extends AppCompatActivity {
 
+    private String title;
+    private String author;
+    private int year;
+    private String publisher;
+    private String category;
+    private String evaluation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_activity);
+        initializeToolbar();
+        getExtras();
+        setTitle(title);
+    }
+
+    private void initializeToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    private void getExtras() {
+        Intent intent = getIntent();
+        title = intent.getStringExtra(Variables.TITLE);
+        author = intent.getStringExtra(Variables.AUTHOR);
+        year = intent.getIntExtra(Variables.YEAR,-1);
+        publisher = intent.getStringExtra(Variables.PUBLISHER);
+        category = intent.getStringExtra(Variables.CATEGORY);
+        evaluation = intent.getStringExtra(Variables.EVALUATION);
+    }
 }

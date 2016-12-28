@@ -149,18 +149,18 @@ public class MainActivity extends AppCompatActivity
         rv.setAdapter(adapter);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
         switch (requestCode){
             case request_Code:
                 switch (resultCode){
                     case RESULT_OK:
-                        String ti = data.getStringExtra("title");
-                        String at = data.getStringExtra("author");
-                        int yr = data.getIntExtra("year",-1);
-                        String publi = data.getStringExtra("publisher");
-                        String cat = data.getStringExtra("category");
-                        String eval = data.getStringExtra("evaluation");
-                        Book newB = bookData.createBook(ti,at,yr,publi,cat,eval);
+                        String title = intent.getStringExtra(Variables.TITLE);
+                        String author = intent.getStringExtra(Variables.AUTHOR);
+                        int year = intent.getIntExtra(Variables.YEAR,-1);
+                        String publisher = intent.getStringExtra(Variables.PUBLISHER);
+                        String category = intent.getStringExtra(Variables.CATEGORY);
+                        String evaluation = intent.getStringExtra(Variables.EVALUATION);
+                        Book newB = bookData.createBook(title,author,year,publisher,category,evaluation);
                         initializeRecycleView();
                         break;
                     case RESULT_CANCELED:

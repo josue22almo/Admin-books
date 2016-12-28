@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="85d5963e0c359a59c68189b7ddd7ea09fe23976e">
+        sha1="9e020d7a84081e184ca1929f170879e9b1760bdc">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_59c2b40504ac12b03bdb8cec56231b2449dcc310/classes.dex" />
     </item>
     <item
@@ -115,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3a06e217cdb82d937b567d89c8dbeb8f0f17f158">
+        sha1="1c94b85742f5420ff0cfac70e2f4265e89ff626b">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6cbf6310d2ca188d05d46934acdffa7531a96e6e/classes.dex" />
     </item>
     <item

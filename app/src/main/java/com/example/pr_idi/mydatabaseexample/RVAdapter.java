@@ -60,16 +60,23 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     @Override
     public void onBindViewHolder(BookViewHolder bookViewHolder, int i) {
-        bookViewHolder.bookTitle.setText(books.get(i).getTitle());
-        bookViewHolder.bookAuthor.setText(books.get(i).getAuthor());
-        bookViewHolder.letter.setText("" + books.get(i).getTitle().charAt(0));
+        final Book book = books.get(i);
+        bookViewHolder.bookTitle.setText(book.getTitle());
+        bookViewHolder.bookAuthor.setText(book.getAuthor());
+        bookViewHolder.letter.setText("" + book.getTitle().charAt(0));
 
         final Context context = bookViewHolder.view.getContext();
         bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Clicked",Toast.LENGTH_LONG).show();
-                context.startActivity(new Intent("android.intent.action.addActivity"));
+                Intent intent = new Intent("android.intent.action.bookActivity");
+                intent.putExtra(Variables.TITLE,book.getTitle());
+                intent.putExtra(Variables.AUTHOR,book.getAuthor());
+                intent.putExtra(Variables.YEAR,book.getYear());
+                intent.putExtra(Variables.PUBLISHER,book.getPublisher());
+                intent.putExtra(Variables.CATEGORY,book.getCategory());
+                intent.putExtra(Variables.EVALUATION,book.getPersonal_evaluation());
+                context.startActivity(intent);
             }
         });
         bookViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {

@@ -22,11 +22,11 @@ public class BookData {
     // Helper to manipulate table
     private MySQLiteHelper dbHelper;
 
-    // Here we only select Title and Author, must select the appropriate columns
+   
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-            MySQLiteHelper.COLUMN_TITLE, MySQLiteHelper.COLUMN_AUTHOR/*,MySQLiteHelper.COLUMN_PUBLISHER,
-            MySQLiteHelper.COLUMN_YEAR,MySQLiteHelper.COLUMN_CATEGORY,MySQLiteHelper.COLUMN_CATEGORY,
-            MySQLiteHelper.COLUMN_PERSONAL_EVALUATION*/};
+            MySQLiteHelper.COLUMN_TITLE, MySQLiteHelper.COLUMN_AUTHOR,
+            MySQLiteHelper.COLUMN_PUBLISHER,MySQLiteHelper.COLUMN_YEAR,
+            MySQLiteHelper.COLUMN_CATEGORY,MySQLiteHelper.COLUMN_PERSONAL_EVALUATION};
 
     public BookData(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -108,8 +108,8 @@ public class BookData {
     }
 
     private Book cursorToBook(Cursor cursor) {
-        Book book = new Book(cursor.getString(1),cursor.getString(2));
-        book.setId(cursor.getLong(0));
+        Book book = new Book(cursor.getLong(0),cursor.getString(1),cursor.getString(2),
+                cursor.getInt(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
         return book;
     }
 }

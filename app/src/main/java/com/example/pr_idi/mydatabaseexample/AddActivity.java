@@ -18,17 +18,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class AddActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+public class AddActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
-        //getActionBar().setHomeButtonEnabled(true);
         initializeActionBar();
         setUpButton();
-        initializeNavigationView();
         floatingButtons();
     }
 
@@ -44,12 +41,6 @@ public class AddActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -66,49 +57,15 @@ public class AddActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
     private void setUpButton() {
         if (getSupportActionBar() != null) // Habilitar up button
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void initializeNavigationView(){
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_add);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
 
     private void initializeActionBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
     }
 
     private void floatingButtons(){
@@ -140,14 +97,14 @@ public class AddActivity extends AppCompatActivity
                     Snackbar.make(v, R.string.noContinue, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 else{
-                    Intent data = new Intent();
-                    data.putExtra("title",ti);
-                    data.putExtra("author",at);
-                    data.putExtra("year",yr);
-                    data.putExtra("publisher",publi);
-                    data.putExtra("category",cat);
-                    data.putExtra("evaluation",eval);
-                    setResult(RESULT_OK,data);
+                    Intent intent = new Intent();
+                    intent.putExtra(Variables.TITLE,ti);
+                    intent.putExtra(Variables.AUTHOR,at);
+                    intent.putExtra(Variables.YEAR,yr);
+                    intent.putExtra(Variables.PUBLISHER,publi);
+                    intent.putExtra(Variables.CATEGORY,cat);
+                    intent.putExtra(Variables.EVALUATION,eval);
+                    setResult(RESULT_OK,intent);
                     finish();
                 }
             }

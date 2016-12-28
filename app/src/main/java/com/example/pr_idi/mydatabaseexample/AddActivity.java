@@ -25,10 +25,9 @@ public class AddActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
         initializeActionBar();
-        setUpButton();
+        //setUpButton();
         floatingButtons();
     }
-
 
     // Life cycle methods. Check whether it is necessary to reimplement them
     @Override

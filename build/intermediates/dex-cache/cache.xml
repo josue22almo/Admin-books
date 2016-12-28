@@ -12,75 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-21.0.3_3502358d976b3b5a25c9a074c01695444c4fba13/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-22.2.1_b07df0c40c9512715ceefdef109d8990031cc28a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.2.1_7393cfda3787d27f4c423392a9e116ee4a703aab/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.1_b6a8ce2259d0488b99866d1390185060ad7d62d0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_920dca48816e7315fc7b06e6fcb1a438b4590885/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="f8efd0096475e0daf054267b61544e10dc776503">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-22.2.1_b07df0c40c9512715ceefdef109d8990031cc28a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_920dca48816e7315fc7b06e6fcb1a438b4590885/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-21.0.3_4ce85611ab8da131618819a5e4b72f0dff3f537e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -88,35 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b7020d7f13779fd5a129ac7e42724af28a2cbb7c">
+        sha1="820c768d1c062843371b5e395ac09f2f8afa9fd0">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_59c2b40504ac12b03bdb8cec56231b2449dcc310/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-22.2.1_793030723d08bc13866befae894db184f520507b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.2.1_7393cfda3787d27f4c423392a9e116ee4a703aab/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-22.2.1_793030723d08bc13866befae894db184f520507b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -129,12 +39,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-22.2.1_793030723d08bc13866befae894db184f520507b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/alumne/Admin-books/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c59ef763acbde91f1a71b8ad2ecd61b430626d25">
+        sha1="cc26c1a879f8f5e40bf90b21049f5e1b435337ca">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6cbf6310d2ca188d05d46934acdffa7531a96e6e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.2.1_7393cfda3787d27f4c423392a9e116ee4a703aab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/alumne/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_920dca48816e7315fc7b06e6fcb1a438b4590885/classes.dex" />
     </item>
     <item
         is-multidex="true"

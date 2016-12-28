@@ -143,20 +143,36 @@ public class MainActivity extends AppCompatActivity
             case Variables.request_code:
                 switch (resultCode){
                     case RESULT_OK:
-                        String title = intent.getStringExtra(Variables.TITLE);
-                        String author = intent.getStringExtra(Variables.AUTHOR);
-                        int year = intent.getIntExtra(Variables.YEAR,-1);
-                        String publisher = intent.getStringExtra(Variables.PUBLISHER);
-                        String category = intent.getStringExtra(Variables.CATEGORY);
-                        String evaluation = intent.getStringExtra(Variables.EVALUATION);
-                        Book newB = bookData.createBook(title,author,year,publisher,category,evaluation);
-                        initializeRecycleView();
-                        Toast.makeText(getBaseContext(),getResources().getText(R.string.book_added),Toast.LENGTH_LONG).show();
+                        activity_for_add(intent);
                         break;
                     case RESULT_CANCELED:
                         Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();
                 }
-
+            case Variables.request_code_book:
+                switch(resultCode){
+                    case Variables.DELETE:
+                        activity_for_delete(intent);
+                        break;
+                }
         }
+    }
+
+    private void activity_for_delete(Intent intent) {
+        Book book = new Book(intent.getLongExtra(Variables.ID,-1));
+        bookData.deleteBook(book);
+        initializeRecycleView();
+        Toast.makeText(getBaseContext(),"Delete",Toast.LENGTH_LONG).show();
+    }
+
+    private void activity_for_add(Intent intent){
+        String title = intent.getStringExtra(Variables.TITLE);
+        String author = intent.getStringExtra(Variables.AUTHOR);
+        int year = intent.getIntExtra(Variables.YEAR,-1);
+        String publisher = intent.getStringExtra(Variables.PUBLISHER);
+        String category = intent.getStringExtra(Variables.CATEGORY);
+        String evaluation = intent.getStringExtra(Variables.EVALUATION);
+        Book newB = bookData.createBook(title,author,year,publisher,category,evaluation);
+        initializeRecycleView();
+        Toast.makeText(getBaseContext(),getResources().getText(R.string.book_added),Toast.LENGTH_LONG).show();
     }
 }

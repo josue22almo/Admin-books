@@ -14,6 +14,10 @@ public class Book {
     private int cercle;
     private String personal_evaluation;
 
+    public Book(long id) {
+        this.id = id;
+    }
+
     public Book(long id, String title, String author, int year,
                 String publisher, String category, int cercle, String personal_evaluation) {
         this.id = id;

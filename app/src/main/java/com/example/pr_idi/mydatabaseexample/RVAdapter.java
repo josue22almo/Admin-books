@@ -1,5 +1,6 @@
 package com.example.pr_idi.mydatabaseexample;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,13 +62,19 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent("android.intent.action.bookActivity");
+                long id = book.getId();
+                intent.putExtra(Variables.ID,id);
                 intent.putExtra(Variables.TITLE,book.getTitle());
                 intent.putExtra(Variables.AUTHOR,book.getAuthor());
                 intent.putExtra(Variables.YEAR,book.getYear());
                 intent.putExtra(Variables.PUBLISHER,book.getPublisher());
                 intent.putExtra(Variables.CATEGORY,book.getCategory());
                 intent.putExtra(Variables.EVALUATION,book.getPersonal_evaluation());
-                context.startActivity(intent);
+               // context.startActivity(intent);*/
+                /*LinearLayout layout = (LinearLayout) bookViewHolder.view.findViewById(R.id.buttons_layout);
+                layout.setVisibility(View.VISIBLE);*/
+                ((Activity)context).startActivityForResult(intent,Variables.request_code_book);
+
             }
         });
         bookViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -77,7 +85,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

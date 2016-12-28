@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class BookActivity extends AppCompatActivity {
 
+    private long id;
     private String title;
     private String author;
     private int year;
@@ -42,16 +43,19 @@ public class BookActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int i = item.getItemId();
 
-       switch (id){
+       switch (i){
            case R.id.action_about:
                break;
            case R.id.action_edit:
                Toast.makeText(getBaseContext(),"Edit",Toast.LENGTH_LONG).show();
                break;
            case R.id.action_delete:
-               setResult(Variables.DELETE);
+               Intent data = new Intent();
+               data.putExtra(Variables.ID,id);
+               setResult(Variables.DELETE,data);
+               finish();
        }
 
         return super.onOptionsItemSelected(item);
@@ -66,6 +70,7 @@ public class BookActivity extends AppCompatActivity {
 
     private void getExtras() {
         Intent intent = getIntent();
+        id = intent.getLongExtra(Variables.ID,-1);
         title = intent.getStringExtra(Variables.TITLE);
         author = intent.getStringExtra(Variables.AUTHOR);
         year = intent.getIntExtra(Variables.YEAR,-1);

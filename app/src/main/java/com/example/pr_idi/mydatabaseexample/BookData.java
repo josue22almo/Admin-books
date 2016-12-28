@@ -6,6 +6,7 @@ package com.example.pr_idi.mydatabaseexample;
  */
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,11 +23,12 @@ public class BookData {
     // Helper to manipulate table
     private MySQLiteHelper dbHelper;
 
-   
+
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
             MySQLiteHelper.COLUMN_TITLE, MySQLiteHelper.COLUMN_AUTHOR,
             MySQLiteHelper.COLUMN_PUBLISHER,MySQLiteHelper.COLUMN_YEAR,
-            MySQLiteHelper.COLUMN_CATEGORY,MySQLiteHelper.COLUMN_PERSONAL_EVALUATION};
+            MySQLiteHelper.COLUMN_CATEGORY,MySQLiteHelper.COLUMN_CERCLE,
+            MySQLiteHelper.COLUMN_PERSONAL_EVALUATION};
 
     public BookData(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -55,8 +57,8 @@ public class BookData {
         values.put(MySQLiteHelper.COLUMN_PUBLISHER, publisher);
         values.put(MySQLiteHelper.COLUMN_YEAR, year);
         values.put(MySQLiteHelper.COLUMN_CATEGORY, category);
+        values.put(MySQLiteHelper.COLUMN_CERCLE, new Random().nextInt(10));
         values.put(MySQLiteHelper.COLUMN_PERSONAL_EVALUATION, personal_evaluation);
-
 
         // Actual insertion of the data using the values variable
         long insertId = database.insert(MySQLiteHelper.TABLE_BOOKS, null,
@@ -94,7 +96,7 @@ public class BookData {
         List<Book> books = new ArrayList<>();
 
         Cursor cursor = database.query(MySQLiteHelper.TABLE_BOOKS,
-                allColumns, null, null, null, null, null);
+                allColumns, null, null, null, null, MySQLiteHelper.COLUMN_CATEGORY);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -108,8 +110,11 @@ public class BookData {
     }
 
     private Book cursorToBook(Cursor cursor) {
+        //col 0 -> id - col 1 -> title - col 2 -> author
+        //col 3 -> year - col 4 -> publisher col 5 -> category
+        //col 6 -> cercle col 7 -> personal evaluation
         Book book = new Book(cursor.getLong(0),cursor.getString(1),cursor.getString(2),
-                cursor.getInt(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+                cursor.getInt(3),cursor.getString(4),cursor.getString(5),cursor.getInt(6),cursor.getString(7));
         return book;
     }
 }

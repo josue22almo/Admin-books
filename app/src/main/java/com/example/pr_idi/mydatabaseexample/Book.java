@@ -1,9 +1,5 @@
 package com.example.pr_idi.mydatabaseexample;
 
-/**
- * Book
- * Created by pr_idi on 10/11/16.
- */
 public class Book {
 
     // Basic book data manipulation class
@@ -15,10 +11,11 @@ public class Book {
     private int year;
     private String publisher;
     private String category;
+    private int cercle;
     private String personal_evaluation;
 
     public Book(long id, String title, String author, int year,
-                String publisher, String category, String personal_evaluation) {
+                String publisher, String category, int cercle, String personal_evaluation) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -26,6 +23,11 @@ public class Book {
         this.publisher = publisher;
         this.category = category;
         this.personal_evaluation = personal_evaluation;
+        this.cercle = cercle;
+    }
+
+    public int getCercle() {
+        return cercle;
     }
 
     public long getId() {

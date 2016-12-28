@@ -1,12 +1,8 @@
 package com.example.pr_idi.mydatabaseexample;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Random;
 
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
@@ -46,8 +41,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
             cercles = itemView.getResources().obtainTypedArray(R.array.cercles);
-            cercle = cercles.getResourceId(new Random().nextInt(10),-1);
-            bookPhoto.setImageResource(cercle);
         }
     }
 
@@ -64,7 +57,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         bookViewHolder.bookTitle.setText(book.getTitle());
         bookViewHolder.bookAuthor.setText(book.getAuthor());
         bookViewHolder.letter.setText("" + book.getTitle().charAt(0));
-
+        bookViewHolder.cercle = cercles.getResourceId(book.getCercle(),-1);
+        bookViewHolder.bookPhoto.setImageResource(bookViewHolder.cercle);
         final Context context = bookViewHolder.view.getContext();
         bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override

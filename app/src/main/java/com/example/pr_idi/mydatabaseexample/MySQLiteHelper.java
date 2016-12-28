@@ -19,12 +19,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PUBLISHER= "publisher";
     public static final String COLUMN_CATEGORY= "category";
     public static final String COLUMN_PERSONAL_EVALUATION = "personal_evaluation";
+    public static final String COLUMN_CERCLE = "cercle";
 
 
     private static final String DATABASE_NAME = "books.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Database creation sql statement
+    // Database creation sql statement, new colum to add cercle color
     private static final String DATABASE_CREATE = "create table " + TABLE_BOOKS + "( "
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_TITLE + " text not null, "
@@ -32,6 +33,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_YEAR + " integer, "
             + COLUMN_PUBLISHER + " text not null, "
             + COLUMN_CATEGORY + " text not null, "
+            + COLUMN_CERCLE + " integer, "
             + COLUMN_PERSONAL_EVALUATION + " text"
             + ");";
 

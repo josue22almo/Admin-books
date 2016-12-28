@@ -1,16 +1,25 @@
 <resources>
+    <!--ACTIVITIES TITLE-->
     <string name="app_name">Books</string>
     <string name="title_activity_main">Books</string>
     <string name="title_activity_add">Add book</string>
     <string name="title_activity_book">BookActivity</string>
+    <!--NAVIGATION-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
+    <!--ACTION STRINGS-->
+    <string name="action_about">About</string>
+    <string name="action_delete">Delete</string>
+    <!--FOR BOOK ATRIBUTES-->
     <string name="addTitle">Title</string>
     <string name="addAuthor">Author</string>
     <string name="addYear">Year</string>
     <string name="addCategory">Category</string>
     <string name="addPersonalOp">Personal evaluation</string>
     <string name="addPublisher">Publisher</string>
+    <!--FOR NO BOOKS AVEILABLES-->
     <string name="noContinue">There are empty values</string>
+    <!--FOR BOOK EDITION-->
+    <string name="book_added">Book added</string>
+    <string name="Cancel">Cancel</string>
 </resources>

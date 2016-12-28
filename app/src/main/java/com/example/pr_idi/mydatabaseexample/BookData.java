@@ -14,6 +14,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 public class BookData {
 
@@ -107,6 +108,13 @@ public class BookData {
         // make sure to close the cursor
         cursor.close();
         return books;
+    }
+
+    public void updateBook(Book book){
+        open();
+        ContentValues cv = new ContentValues();
+        cv.put(MySQLiteHelper.COLUMN_PERSONAL_EVALUATION,book.getPersonal_evaluation());
+        database.update(MySQLiteHelper.TABLE_BOOKS,cv,MySQLiteHelper.COLUMN_ID+"="+book.getId(),null);
     }
 
     private Book cursorToBook(Cursor cursor) {

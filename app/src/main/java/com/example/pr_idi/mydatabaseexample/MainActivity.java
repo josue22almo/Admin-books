@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private BookData bookData;
-    private final int request_Code = 1;
     List<Book> books;
 
     @Override
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
             return true;
         }
 
@@ -76,21 +75,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (id){
+            case R.id.nav_delete:
+                bookData = new BookData(this);
+                break;
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -130,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent("android.intent.action.addActivity"),request_Code);
+                startActivityForResult(new Intent("android.intent.action.addActivity"),Variables.request_code);
             }
         });
     }
@@ -151,7 +140,7 @@ public class MainActivity extends AppCompatActivity
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         switch (requestCode){
-            case request_Code:
+            case Variables.request_code:
                 switch (resultCode){
                     case RESULT_OK:
                         String title = intent.getStringExtra(Variables.TITLE);
@@ -162,6 +151,7 @@ public class MainActivity extends AppCompatActivity
                         String evaluation = intent.getStringExtra(Variables.EVALUATION);
                         Book newB = bookData.createBook(title,author,year,publisher,category,evaluation);
                         initializeRecycleView();
+                        Toast.makeText(getBaseContext(),getResources().getText(R.string.book_added),Toast.LENGTH_LONG).show();
                         break;
                     case RESULT_CANCELED:
                         Toast.makeText(this,"Cancel",Toast.LENGTH_LONG).show();

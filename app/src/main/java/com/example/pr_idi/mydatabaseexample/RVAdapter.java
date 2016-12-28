@@ -13,18 +13,15 @@ import android.widget.Toast;
 
 import java.util.List;
 
-
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     List<Book> books;
-    private final int request_Code = 1;
     TypedArray cercles;
     public RVAdapter(List<Book> books){
         this.books = books;
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
-        //CardView cv;
         TextView bookTitle;
         TextView bookAuthor;
         ImageView bookPhoto;
@@ -35,7 +32,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         BookViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-           // cv = (CardView)itemView.findViewById(R.id.cv);
             bookTitle = (TextView)itemView.findViewById(R.id.book_title);
             bookAuthor = (TextView)itemView.findViewById(R.id.book_author);
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
@@ -52,7 +48,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(BookViewHolder bookViewHolder, int i) {
+    public void onBindViewHolder(final BookViewHolder bookViewHolder, int i) {
         final Book book = books.get(i);
         bookViewHolder.bookTitle.setText(book.getTitle());
         bookViewHolder.bookAuthor.setText(book.getAuthor());
@@ -80,8 +76,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
                 return true;
             }
         });
-
-
     }
 
 

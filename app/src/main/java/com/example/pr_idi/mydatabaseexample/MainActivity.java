@@ -3,6 +3,7 @@ package com.example.pr_idi.mydatabaseexample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,13 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends ActionBarActivity
+implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Toolbar toolbar;
     private BookData bookData;
     List<Book> books;
 
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_search:
                // intent = new Intent("android.intent.action.searchActivity");
                 Toast.makeText(getBaseContext(),"Search",Toast.LENGTH_LONG).show();
+              //  getActionBar().hide();
                 onSearchRequested();
                 break;
             case R.id.action_about:
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             default:
                 return super.onOptionsItemSelected(item);
+
         }
        // startActivity(intent);
         return true;
@@ -112,7 +117,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void initializeActionBar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

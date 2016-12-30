@@ -25,17 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="74a9ed4362c15e04ad664643c7256ec4c50a919e">
+        sha1="e115147eec687d4f850a052873cd6b2a54758b95">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_59c2b40504ac12b03bdb8cec56231b2449dcc310/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-22.2.1_793030723d08bc13866befae894db184f520507b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,11 +39,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-22.2.1_793030723d08bc13866befae894db184f520507b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/alumne/Admin-books/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a21ed0536e85ba080e651853d8ab9d68871cc9d3">
+        sha1="451b70990547cbf29420b2249efb4e35c4b3d26e">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6cbf6310d2ca188d05d46934acdffa7531a96e6e/classes.dex" />
     </item>
     <item

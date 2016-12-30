@@ -17,21 +17,12 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-        initializeActionBar();
+        //initializeActionBar();
         setUpButton();
-        setTitle("");
+      /*  setTitle("");*/
     }
 
     // Life cycle methods. Check whether it is necessary to reimplement them
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {

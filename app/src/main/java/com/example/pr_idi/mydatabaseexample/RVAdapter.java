@@ -26,6 +26,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
     public class BookViewHolder extends RecyclerView.ViewHolder {
         TextView bookTitle;
         TextView bookAuthor;
+        TextView bookCategory;
+        TextView bookYear;
+        TextView bookPublisher;
+        TextView bookEvaluation;
         ImageView bookPhoto;
         TextView letter;
         int cercle;
@@ -36,6 +40,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             view = itemView;
             bookTitle = (TextView)itemView.findViewById(R.id.book_title);
             bookAuthor = (TextView)itemView.findViewById(R.id.book_author);
+            bookCategory = (TextView)itemView.findViewById(R.id.book_title);
+            bookYear = (TextView)itemView.findViewById(R.id.book_title);
+            bookPublisher = (TextView)itemView.findViewById(R.id.book_title);
+            bookEvaluation = (TextView)itemView.findViewById(R.id.book_evaluation);
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
             cercles = itemView.getResources().obtainTypedArray(R.array.cercles);
@@ -52,11 +60,30 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
     @Override
     public void onBindViewHolder(final BookViewHolder bookViewHolder, int i) {
         final Book book = books.get(i);
+        //getting and setting in text views all atributes book
         bookViewHolder.bookTitle.setText(book.getTitle());
         bookViewHolder.bookAuthor.setText(book.getAuthor());
+        bookViewHolder.bookCategory.setText(book.getCategory());
+        bookViewHolder.bookYear.setText(book.getTitle());
+        bookViewHolder.bookPublisher.setText(book.getPublisher());
+        bookViewHolder.bookEvaluation.setText(book.getPersonal_evaluation());
         bookViewHolder.letter.setText("" + book.getTitle().charAt(0));
         bookViewHolder.cercle = cercles.getResourceId(book.getCercle(),-1);
         bookViewHolder.bookPhoto.setImageResource(bookViewHolder.cercle);
+        //if the book has not personal evaluation, we must to say it. Else if
+        //the personal evalution takes more than 3 lines in the text view, we must ellipze the text.
+        String evaluation = book.getPersonal_evaluation();
+        if (evaluation.equals(null) || evaluation.length() == 0){
+            evaluation = "You don't have personal evaluation for this book.";
+            bookViewHolder.bookEvaluation.setText(evaluation);
+        }
+        else{
+            bookViewHolder.bookEvaluation.setText(evaluation);
+            if (bookViewHolder.bookEvaluation.getLineCount() > 3){
+                evaluation = evaluation.substring(0,50) + "...";
+                bookViewHolder.bookEvaluation.setText(evaluation);
+            }
+        }
         final Context context = bookViewHolder.view.getContext();
         bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
         initializeActionBar();
         initializeData();
         addBook();
         initializeNavigationView();
         initializeRecycleView();
-
-       // getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     // Life cycle methods.
@@ -66,8 +65,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_about) {
             return true;
         }
-
-        return super.onOptionsItemSelected(item);
+        Intent intent;
+        switch (id){
+            case R.id.action_search:
+               // intent = new Intent("android.intent.action.searchActivity");
+                Toast.makeText(getBaseContext(),"Search",Toast.LENGTH_LONG).show();
+                onSearchRequested();
+                break;
+            case R.id.action_about:
+                intent = new Intent();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+       // startActivity(intent);
+        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -99,7 +111,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void initializeActionBar(){
+    public void initializeActionBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -114,7 +126,7 @@ public class MainActivity extends AppCompatActivity
         books = bookData.getAllBooks();
     }
 
-    private void addBook(){
+    public void addBook(){
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +136,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private void initializeNavigationView(){
+    public void initializeNavigationView(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

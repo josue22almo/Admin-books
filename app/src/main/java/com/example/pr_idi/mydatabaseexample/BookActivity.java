@@ -25,6 +25,7 @@ public class BookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_activity);
+        setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
         initializeToolbar();
         getExtras();
         setExtras();

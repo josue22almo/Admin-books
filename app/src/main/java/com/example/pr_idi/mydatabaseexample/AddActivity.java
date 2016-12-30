@@ -24,8 +24,9 @@ public class AddActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
+        setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
         initializeActionBar();
-        //setUpButton();
+        setUpButton();
         floatingButtons();
     }
 

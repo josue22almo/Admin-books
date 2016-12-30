@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
@@ -40,9 +41,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             view = itemView;
             bookTitle = (TextView)itemView.findViewById(R.id.book_title);
             bookAuthor = (TextView)itemView.findViewById(R.id.book_author);
-            bookCategory = (TextView)itemView.findViewById(R.id.book_title);
-            bookYear = (TextView)itemView.findViewById(R.id.book_title);
-            bookPublisher = (TextView)itemView.findViewById(R.id.book_title);
+            bookCategory = (TextView)itemView.findViewById(R.id.book_category);
+            bookYear = (TextView)itemView.findViewById(R.id.book_year);
+            bookPublisher = (TextView)itemView.findViewById(R.id.book_publisher);
             bookEvaluation = (TextView)itemView.findViewById(R.id.book_evaluation);
             bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
@@ -64,7 +65,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         bookViewHolder.bookTitle.setText(book.getTitle());
         bookViewHolder.bookAuthor.setText(book.getAuthor());
         bookViewHolder.bookCategory.setText(book.getCategory());
-        bookViewHolder.bookYear.setText(book.getTitle());
+        bookViewHolder.bookYear.setText(Objects.toString(book.getYear()));
         bookViewHolder.bookPublisher.setText(book.getPublisher());
         bookViewHolder.bookEvaluation.setText(book.getPersonal_evaluation());
         bookViewHolder.letter.setText("" + book.getTitle().charAt(0));

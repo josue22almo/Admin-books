@@ -119,10 +119,10 @@ public class BookData {
 
     private Book cursorToBook(Cursor cursor) {
         //col 0 -> id - col 1 -> title - col 2 -> author
-        //col 3 -> year - col 4 -> publisher col 5 -> category
+        //col 4 -> year - col 3 -> publisher col 5 -> category
         //col 6 -> cercle col 7 -> personal evaluation
         Book book = new Book(cursor.getLong(0),cursor.getString(1),cursor.getString(2),
-                cursor.getInt(3),cursor.getString(4),cursor.getString(5),cursor.getInt(6),cursor.getString(7));
+                cursor.getString(3),cursor.getInt(4),cursor.getString(5),cursor.getInt(6),cursor.getString(7));
         return book;
     }
 }

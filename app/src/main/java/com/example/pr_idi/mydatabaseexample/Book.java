@@ -18,8 +18,8 @@ public class Book {
         this.id = id;
     }
 
-    public Book(long id, String title, String author, int year,
-                String publisher, String category, int cercle, String personal_evaluation) {
+    public Book(long id, String title, String author,
+                String publisher, int year,String category, int cercle, String personal_evaluation) {
         this.id = id;
         this.title = title;
         this.author = author;

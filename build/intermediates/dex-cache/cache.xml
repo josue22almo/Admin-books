@@ -12,30 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-22.2.1_b07df0c40c9512715ceefdef109d8990031cc28a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/alumne/Admin-books/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d4cbf88d86bb498b4fd7f7c4ae23054bbb27ab67">
+        sha1="a4a68630701d299beee7bc9e221d91f94f9044bb">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_59c2b40504ac12b03bdb8cec56231b2449dcc310/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.1_b6a8ce2259d0488b99866d1390185060ad7d62d0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,21 +30,39 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/alumne/Admin-books/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6146d923538d558e21e2b5da9dcec5e139ec2b2b">
-        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6cbf6310d2ca188d05d46934acdffa7531a96e6e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
         <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.2.1_7393cfda3787d27f4c423392a9e116ee4a703aab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-22.2.1_b07df0c40c9512715ceefdef109d8990031cc28a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.1_b6a8ce2259d0488b99866d1390185060ad7d62d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/alumne/Admin-books/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="96c1b6609e492d59d1048ba3909640d6ac7e4f8c">
+        <dex dex="/home/alumne/Admin-books/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6cbf6310d2ca188d05d46934acdffa7531a96e6e/classes.dex" />
     </item>
     <item
         is-multidex="true"

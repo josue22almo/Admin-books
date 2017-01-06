@@ -4,6 +4,7 @@
     <string name="title_activity_main">Books</string>
     <string name="title_activity_add">Add book</string>
     <string name="title_activity_book">BookActivity</string>
+    <string name="title_activity_about">About</string>
     <!--NAVIGATION-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -25,5 +26,8 @@
     <string name="Cancel">Cancel</string>
     <!--FOR SEARCH-->
     <string name="search_hint">Search by author</string>
-    <string name="search_label">Search</string>
+    <string name="search_label">Search
+    </string>
+    <!--HELP-->
+    <string name="help">Help</string>
 </resources>

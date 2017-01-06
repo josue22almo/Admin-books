@@ -14,8 +14,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.Toast;
-
 public class BookData {
 
     // Database fields
@@ -87,6 +85,13 @@ public class BookData {
     public void deleteBook(Book book) {
         open();
         long id = book.getId();
+        System.out.println("Book deleted with id: " + id);
+        database.delete(MySQLiteHelper.TABLE_BOOKS, MySQLiteHelper.COLUMN_ID
+                + " = " + id, null);
+    }
+
+    public void deleteBook(long id) {
+        open();
         System.out.println("Book deleted with id: " + id);
         database.delete(MySQLiteHelper.TABLE_BOOKS, MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);

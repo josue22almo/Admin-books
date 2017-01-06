@@ -46,7 +46,6 @@ public class AddActivity extends AppCompatActivity{
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
     private void initializeActionBar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -106,5 +105,3 @@ public class AddActivity extends AppCompatActivity{
         });
     }
 }
-
-

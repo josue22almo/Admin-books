@@ -1,6 +1,7 @@
 package com.example.pr_idi.mydatabaseexample;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -19,9 +20,12 @@ import java.util.Objects;
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
 
     List<Book> books;
+    FragmentManager fragmentManager;
     TypedArray cercles;
-    public RVAdapter(List<Book> books){
+    public RVAdapter(List<Book> books, FragmentManager fragmentManager){
+
         this.books = books;
+        this.fragmentManager = fragmentManager;
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
@@ -98,9 +102,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
                 intent.putExtra(Variables.PUBLISHER,book.getPublisher());
                 intent.putExtra(Variables.CATEGORY,book.getCategory());
                 intent.putExtra(Variables.EVALUATION,book.getPersonal_evaluation());
-               // context.startActivity(intent);*/
-                /*LinearLayout layout = (LinearLayout) bookViewHolder.view.findViewById(R.id.buttons_layout);
-                layout.setVisibility(View.VISIBLE);*/
                 ((Activity)context).startActivityForResult(intent,Variables.request_code_book);
 
             }
@@ -108,7 +109,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         bookViewHolder.view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(v.getContext(),"Long clicked",Toast.LENGTH_LONG).show();
+                DeleteFragment fragment = DeleteFragment.newInstance("Delete book",book);
+                fragment.show(fragmentManager,"dialog");
                 return true;
             }
         });

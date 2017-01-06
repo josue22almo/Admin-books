@@ -24,6 +24,6 @@
     <string name="book_added">Book added</string>
     <string name="Cancel">Cancel</string>
     <!--FOR SEARCH-->
-    <string name="search_hint">Search book by author</string>
+    <string name="search_hint">Search by author</string>
     <string name="search_label">Search</string>
 </resources>

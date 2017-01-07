@@ -25,7 +25,6 @@ public class HelpFragment extends DialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState){
         String title = getArguments().getString("title");
         final String message = getArguments().getString("message");
-        final long id = getArguments().getLong("id");
         return new AlertDialog.Builder(getActivity())
                 .setIcon(R.drawable.icon)
                 .setTitle(title)

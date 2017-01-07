@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".AddActivity">
+    tools:context=".AddActivity"
+    app:layout_collapseParallaxMultiplier="0.5">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -27,7 +28,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_top">
+        android:layout_marginTop="@dimen/margin_top"
+        android:weightSum="1">
         <!--TITLE-->
         <EditText
             android:layout_width="fill_parent"
@@ -90,39 +92,38 @@
 
         <!--SPINNER-->
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
             android:id="@+id/spinner"
-            android:hint="@string/addCategory"
+            android:drawSelectorOnTop="true"
             android:layout_marginLeft="@dimen/margin_left"
             android:entries="@array/categories"
-            android:drawSelectorOnTop="true"
             android:prompt="@string/addCategory"
             android:spinnerMode="dialog"
             android:layout_below="@+id/publisherText"
             android:layout_alignParentStart="true"
-            android:layout_height="40dp"
             android:layout_marginTop="@dimen/margin_textView"/>
 
         <!--PERSONAL EVALUATION-->
-        <EditText
-            android:layout_width="fill_parent"
+        <RatingBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/evalText"
-            android:maxLines="3"
-            android:hint="@string/addPersonalOp"
+            android:id="@+id/evalRat"
             android:layout_marginLeft="@dimen/margin_left"
-            android:textSize="@dimen/textSize"
+            android:numStars="5"
+            android:stepSize="1"
+            android:isIndicator="false"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="19dp"
-            android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
-            android:layout_below="@+id/spinner"
-            android:layout_alignParentStart="true" />
+            android:layout_below="@+id/spinner"/>
 
         <!--FLOATING BUTTONS-->
+
         <LinearLayout
             android:layout_width="180dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_alignBottom="@+id/evalText"
+            android:layout_alignBottom="@+id/evalRat"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="30dp"
             android:layout_alignParentBottom="true"
@@ -145,7 +146,7 @@
                 android:layout_marginLeft="@dimen/fab_margin"
                 android:layout_marginRight="@dimen/fab_margin"
                 android:layout_alignParentBottom="true" />
-
         </LinearLayout>
+
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -2,13 +2,13 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        android:padding="@dimen/padding_card">
+        android:id="@+id/cv">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -63,31 +63,25 @@
                 android:layout_below="@+id/book_author"
                 android:layout_alignStart="@+id/book_title"
                 android:text="SCIENCE FICTION"/>
-            <!--YEAR-->
+            <!--YEAR and PUBLISHER-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/book_year"
+                android:id="@+id/book_year_publisher"
                 android:layout_below="@+id/book_category"
                 android:layout_alignStart="@+id/book_title"
-                android:text="9435"/>
-            <!--PUBLISHER-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/book_publisher"
-                android:text="PUBLISHER"
-                android:layout_alignLeft="@+id/book_year"
-                android:layout_below="@+id/book_category"
-                android:layout_alignEnd="@+id/book_category" />
+                android:text="9435, PUBLISHER"/>
+
             <!--PERSONAL EVALUATION-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/book_evaluation"
-                android:layout_below="@+id/book_year"
+                android:layout_below="@+id/book_year_publisher"
                 android:maxLines="4"
                 android:ellipsize="end"
+
+                android:layout_alignStart="@+id/book_title"
                 android:text="PERSONAL EVALUATION"/>
         </RelativeLayout>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="categories">
+        <item>Select category...</item>
         <item>Science fiction</item>
         <item>Satire</item>
         <item>Drama</item>
@@ -32,6 +33,14 @@
         <item>Biographies</item>
         <item>Autobiographies</item>
         <item>Fantasy</item>
+    </string-array>
+
+    <string-array name="evaluation">
+        <item>Very bad</item>
+        <item>Bad</item>
+        <item>Regular</item>
+        <item>Good</item>
+        <item>Very good</item>
     </string-array>
 
     <integer-array name="cercles">

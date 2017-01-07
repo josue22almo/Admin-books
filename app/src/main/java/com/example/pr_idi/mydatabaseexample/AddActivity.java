@@ -4,22 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import java.util.Arrays;
 
 
 public class AddActivity extends AppCompatActivity{
 
+    private Spinner category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +28,35 @@ public class AddActivity extends AppCompatActivity{
         initializeActionBar();
         setUpButton();
         floatingButtons();
+        setHint2Spinners();
     }
 
-    // Life cycle methods. Check whether it is necessary to reimplement them
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
+    private void setHint2Spinners(){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item) {
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View v = super.getView(position, convertView, parent);
+                if (position == 0) {
+                    ((TextView)v.findViewById(android.R.id.text1)).setText("");
+                    ((TextView)v.findViewById(android.R.id.text1)).setHint(getItem(0)); //"Hint to be displayed"
+                }
+                return v;
+            }
+
+            @Override
+            public int getCount() {
+                return super.getCount(); // you dont display last item. It is used as hint.
+            }
+        };
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String categories[] = getResources().getStringArray(R.array.categories);
+        Arrays.sort(categories,1,categories.length);
+        adapter.addAll(categories);
+        category = (Spinner) findViewById(R.id.spinner);
+        category.setAdapter(adapter);
     }
 
     private void setUpButton() {
@@ -66,8 +84,7 @@ public class AddActivity extends AppCompatActivity{
                 EditText author = (EditText) findViewById(R.id.authorText);
                 EditText year = (EditText) findViewById(R.id.yearText);
                 EditText publisher = (EditText) findViewById(R.id.publisherText);
-                Spinner category = (Spinner) findViewById(R.id.spinner);
-                EditText evaluation = (EditText) findViewById(R.id.evalText);
+                RatingBar evaluation = (RatingBar)findViewById(R.id.evalRat);
                 //taking values from the widgets
                 String ti = title.getText().toString();
                 String at = author.getText().toString();
@@ -75,9 +92,11 @@ public class AddActivity extends AppCompatActivity{
                 int yr = (t.length() > 0 ? Integer.parseInt(t) : -1);
                 String publi = publisher.getText().toString();
                 String cat = category.getSelectedItem().toString();
-                String eval = evaluation.getText().toString();
-                if(ti.length() == 0 || at.length() == 0 || yr == -1 || publi.length() == 0)
-                    Snackbar.make(v, R.string.noContinue, Snackbar.LENGTH_LONG)
+                String[] evaluations = getResources().getStringArray(R.array.evaluation);
+                float rating = evaluation.getRating() - 1.0f;
+                String eval = (rating != -1 ? evaluations[(int)rating] : "You don't have personal evaluation for this book.");
+                if(ti.length() == 0 || at.length() == 0 || yr == -1 || publi.length() == 0 || cat.equals(getResources().getStringArray(R.array.categories)[0]))
+                    Snackbar.make(v,R.string.noContinue, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 else{
                     Intent intent = new Intent();

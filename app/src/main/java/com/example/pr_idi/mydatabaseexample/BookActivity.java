@@ -2,16 +2,18 @@ package com.example.pr_idi.mydatabaseexample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-public class BookActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class BookActivity extends AppCompatActivity{
 
     private long id;
     private String title;
@@ -20,12 +22,12 @@ public class BookActivity extends AppCompatActivity {
     private String publisher;
     private String category;
     private String evaluation;
+    private List<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_activity);
-        setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
         initializeToolbar();
         getExtras();
         setExtras();
@@ -42,10 +44,9 @@ public class BookActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-
        switch (i){
            case R.id.action_edit:
-               Toast.makeText(getBaseContext(),"Edit",Toast.LENGTH_LONG).show();
+               Toast.makeText(getBaseContext(),"Edit", Toast.LENGTH_LONG).show();
                break;
            case R.id.action_delete:
                Intent data = new Intent();
@@ -53,10 +54,8 @@ public class BookActivity extends AppCompatActivity {
                setResult(Variables.DELETE,data);
                finish();
        }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     private void initializeToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -76,6 +75,12 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void setExtras() {
-        setTitle(title);
+        list = new ArrayList<>();
+        setTitle(title + " - " + author);
+        list.add("Title: " + title); list.add("Author: " + author); list.add("Year: " + Integer.toString(year));
+        list.add("Publisher: " + publisher); list.add("Categroy: " + category); list.add("Evaluation: " + evaluation);
+        ListView listView = (ListView)findViewById(R.id.book_list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
     }
 }

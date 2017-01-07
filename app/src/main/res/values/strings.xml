@@ -20,7 +20,7 @@
     <string name="addPersonalOp">Personal evaluation</string>
     <string name="addPublisher">Publisher</string>
     <!--FOR NO BOOKS AVEILABLES-->
-    <string name="noContinue">There are empty values</string>
+    <string name="noContinue">There are empty values. Title, author, year, publisher and category are required fields.</string>
     <!--FOR BOOK EDITION-->
     <string name="book_added">Book added</string>
     <string name="Cancel">Cancel</string>

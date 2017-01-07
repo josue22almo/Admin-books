@@ -110,20 +110,6 @@ implements NavigationView.OnNavigationItemSelectedListener {
         return  result;
     }
 
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id){
-            case R.id.action_about:
-                startActivity(new Intent("android.intent.action.aboutActivity"));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }*/
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

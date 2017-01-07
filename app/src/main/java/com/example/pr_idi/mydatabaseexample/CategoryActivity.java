@@ -110,30 +110,19 @@ implements NavigationView.OnNavigationItemSelectedListener {
         return  result;
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
-            startActivity(new Intent("android.intent.action.aboutActivity"));
-            return true;
-        }
-        Intent intent;
         switch (id){
             case R.id.action_about:
-                intent = new Intent();
-                break;
+                startActivity(new Intent("android.intent.action.aboutActivity"));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 
         }
-       // startActivity(intent);
-        return true;
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -141,8 +130,8 @@ implements NavigationView.OnNavigationItemSelectedListener {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id){
-            case R.id.nav_delete:
-                bookData = new BookData(this);
+            case R.id.nav_about:
+                startActivity(new Intent("android.intent.action.aboutActivity"));
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

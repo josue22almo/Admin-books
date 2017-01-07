@@ -41,14 +41,9 @@ public class BookActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int i = item.getItemId();
 
        switch (i){
-           case R.id.action_about:
-               break;
            case R.id.action_edit:
                Toast.makeText(getBaseContext(),"Edit",Toast.LENGTH_LONG).show();
                break;

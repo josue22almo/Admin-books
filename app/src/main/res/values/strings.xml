@@ -29,5 +29,15 @@
     <string name="search_label">Search
     </string>
     <!--HELP-->
-    <string name="help">Help</string>
+    <string name="help">
+        <b>1. How to add books? \n</b>Click on the orange floating button. A form will open. Complete the form,
+        all fields are required, except your personal evaluation. You can modified it later.\n \n \n
+        <b>2. How to delete books? \n</b>There are two ways for delete books:\n
+                2.1 Delete book with card long press: long press on the respective card book to delete. A dialog will open with to options,
+            select "Delete" for delete or "Cancel" for cancel the operation.\n
+                2.2 Delete on the book view: click on the respective card book. A view with book information will open, click in the expand menu (top-right of the
+            toolbar). You will see a option for delete the book that you have select before\n \n \n
+        <b>3. How to modify personal evaluation? \n</b>
+            Click on the respective card book. A view with book information will open, click at pencil icon for modify your book personal evaluation. \n
+    </string>
 </resources>

@@ -29,11 +29,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
     public class BookViewHolder extends RecyclerView.ViewHolder {
         TextView bookTitle;
         TextView bookAuthor;
-        TextView bookCategory;
-        TextView bookYearPublisher;
-        TextView bookEvaluation;
-        ImageView bookPhoto;
         TextView letter;
+        ImageView bookPhoto;
         int cercle;
         View view;
 
@@ -42,11 +39,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
             view = itemView;
             bookTitle = (TextView)itemView.findViewById(R.id.book_title);
             bookAuthor = (TextView)itemView.findViewById(R.id.book_author);
-            bookCategory = (TextView)itemView.findViewById(R.id.book_category);
-            bookYearPublisher = (TextView)itemView.findViewById(R.id.book_year_publisher);
-            bookEvaluation = (TextView)itemView.findViewById(R.id.book_evaluation);
-            bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             letter = (TextView) itemView.findViewById(R.id.book_photoText);
+            bookPhoto = (ImageView)itemView.findViewById(R.id.book_photo);
             cercles = itemView.getResources().obtainTypedArray(R.array.cercles);
         }
     }
@@ -64,16 +58,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.BookViewHolder>{
         //getting and setting in text views all atributes book
         bookViewHolder.bookTitle.setText(book.getTitle());
         bookViewHolder.bookAuthor.setText(book.getAuthor());
-        bookViewHolder.bookCategory.setText(book.getCategory());
-        bookViewHolder.bookYearPublisher.setText(Objects.toString(book.getYear()) + "  -  "  + book.getPublisher());
-        bookViewHolder.bookEvaluation.setText(book.getPersonal_evaluation());
         bookViewHolder.letter.setText("" + book.getTitle().charAt(0));
         bookViewHolder.cercle = cercles.getResourceId(book.getCercle(),-1);
         bookViewHolder.bookPhoto.setImageResource(bookViewHolder.cercle);
-        String evaluation = book.getPersonal_evaluation();
-        /*if (evaluation.equals(null) || evaluation.length() == 0)
-            evaluation = "You don't have personal evaluation for this book.";*/
-        bookViewHolder.bookEvaluation.setText(evaluation);
         final Context context = bookViewHolder.view.getContext();
         bookViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
